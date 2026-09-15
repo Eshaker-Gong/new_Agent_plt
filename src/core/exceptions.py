@@ -24,3 +24,4 @@ def register_exception_handlers(app: FastAPI) -> None:
             status_code=500,
             content={"code": 500, "message": "服务器内部错误", "data": None},
         )
+    

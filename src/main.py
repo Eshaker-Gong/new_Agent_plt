@@ -6,6 +6,7 @@ from src.middlewares.logging import LoggingMiddleware
 from src.infra.database import engine
 from loguru import logger
 from src.modules.user.api import router as user_router
+from src.modules.captcha.api import router as captcha_router
 
 
 
@@ -39,6 +40,7 @@ def create_app() -> FastAPI:
     register_exception_handlers(app)
     #注册路由
     app.include_router(user_router, prefix="/api/v1")
+    app.include_router(captcha_router, prefix="/api/v1")
     
     return app
 
