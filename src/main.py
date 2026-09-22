@@ -7,7 +7,7 @@ from src.infra.database import engine
 from loguru import logger
 from src.modules.user.api import router as user_router
 from src.modules.captcha.api import router as captcha_router
-
+from src.modules.auth.api import router as auth_router
 
 
 # 使用上下文管理器 感知 项目的周期
@@ -39,8 +39,9 @@ def create_app() -> FastAPI:
     #注册异常处理中间件
     register_exception_handlers(app)
     #注册路由
-    app.include_router(user_router, prefix="/api/v1")
-    app.include_router(captcha_router, prefix="/api/v1")
+    app.include_router(user_router, prefix="/api/v1") # 用户路由
+    app.include_router(captcha_router, prefix="/api/v1") # 验证码路由
+    app.include_router(auth_router, prefix="/api/v1") # 认证路由
     
     return app
 

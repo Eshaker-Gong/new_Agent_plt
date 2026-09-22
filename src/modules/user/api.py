@@ -12,7 +12,7 @@ def get_user_service(db: AsyncSession = Depends(get_db)) -> UserService:
     return UserService(db)
 
 
-@router.post("", response_model=ResponseSchema[UserRead])
+@router.post("", response_model=ResponseSchema[UserRead], summary="创建用户")
 async def create_user(
     data: UserCreate,
     svc: UserService = Depends(get_user_service),

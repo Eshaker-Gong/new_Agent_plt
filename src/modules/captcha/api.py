@@ -1,6 +1,6 @@
 from redis.asyncio.client import Redis
 from src.infra.redis_cache import get_redis_client
-from src.modules.captcha.schema import CaptchaRead
+from src.modules.captcha.schema import CaptchaRead,CaptchaVerifyRequest
 from fastapi import APIRouter, Depends
 from src.core.base_schema import ResponseSchema
 from src.modules.captcha.service import CaptchaService
@@ -22,3 +22,11 @@ async def get_capture(
 
 
 #POST /api/v1/captcha/verify     校验验证码
+@router.post("",response_model=ResponseSchema[bool],summary="校验验证码")
+async def verify_capture(
+    captcha: CaptchaVerifyRequest,
+    svc:CaptchaService = Depends(get_captcha_service)
+):
+    is_valid = await svc.verify_captcha(captcha)
+    return ResponseSchema[bool](data=is_valid)
+    

@@ -1,10 +1,11 @@
 from redis.asyncio.client import Redis
-from src.modules.captcha.schema import CaptchaRead
+from src.modules.captcha.schema import CaptchaRead,CaptchaVerifyRequest
 import random
 import string
 import uuid
 import base64
 from captcha.image import ImageCaptcha
+from src.core.exceptions import BizException
 
 # 定义验证码字符集
 captcha_chars = string.ascii_letters + string.digits
@@ -48,3 +49,21 @@ class CaptchaService():
             key = captcha_id,
             image = f"data:image/png;base64,{b64}"
             )
+
+
+
+    #校验验证码
+    async def verify_captcha(self, captcha: CaptchaVerifyRequest) -> bool:
+        #1.从Redis中获取验证码
+        key = f"{self.CAPTCHA_KEY_EXPIRE}{captcha.key}"
+        #2.从Redis中获取数据
+        code = await self.redis.get(key)
+        if not code:
+            raise BizException(code= "10001",message="验证码不存在或过期")
+        if code.lower() != captcha.code.lower():
+            raise BizException(code= "10002",message="验证码错误")
+        #3.删除验证码
+        await self.redis.delete(key)
+
+        #4.校验通过
+        return True
