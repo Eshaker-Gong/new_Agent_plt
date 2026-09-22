@@ -21,6 +21,10 @@ class Settings(BaseSettings):
     LOG_LEVEL: str = "DEBUG"
     LOG_DIR: str = "logs"
 
+    JWT_SECRET_KEY: str = "change-me-in-production"
+    JWT_ALGORITHM: str = "HS256"
+    JWT_EXPIRE_MINUTES: int = 30
+
     @property
     def DATABASE_URL(self) -> str:
         return (
