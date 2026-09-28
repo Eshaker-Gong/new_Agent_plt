@@ -35,15 +35,15 @@ class AuthService():
             raise BizException(code=10004,message="用户已被禁用")
         
         # 3.校验通过。校验密码
-        if not verify_password(data.password, user.hash_password):
+        if not verify_password(data.password, user.hashed_password):
             raise BizException(code=10003,message="密码错误")
         
-        # 4.校验通过。登录成功。生成token
-        payload = {"sub": user.id, "username": user.username, "email": user.email}
+        # 4.校验通过。登录成功。生成token  强制sub 必须是字符串
+        payload = {"sub": str(user.id), "username": user.username, "email": user.email}
         token = encode_jwt(payload)
 
         # 5。修改登录时间
-        user.last_login_time = datetime.now()
+        user.last_login_at = datetime.now()
         await self.user_repo.update(user)
 
         return TokenResponse(access_token=token)
