@@ -94,7 +94,7 @@ export default function DashboardLayout() {
               <Bot className="w-5 h-5 text-white" />
             </div>
             <div>
-              <div className="font-bold text-base text-gray-900">辰光 Agent</div>
+              <div className="font-bold text-base text-gray-900">fy Agent</div>
               <div className="text-xs text-gray-500">Enterprise</div>
             </div>
           </div>

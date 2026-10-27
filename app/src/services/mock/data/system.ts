@@ -304,7 +304,7 @@ export const mockSystemAlerts: SystemAlert[] = [
 // 系统设置Mock数据
 export const mockSystemSettings: SystemSettings = {
   basic: {
-    siteName: '辰光Agent平台',
+    siteName: 'fyAgent平台',
     siteUrl: 'https://agent.example.com',
     logo: '/logo.png',
     favicon: '/favicon.ico',

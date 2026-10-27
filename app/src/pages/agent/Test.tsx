@@ -123,7 +123,7 @@ export default function AgentTest() {
                       <Badge>0.95</Badge>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      辰光Agent平台支持多种大语言模型...
+                      fyAgent平台支持多种大语言模型...
                     </p>
                   </div>
                 </div>

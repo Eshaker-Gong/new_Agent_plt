@@ -101,7 +101,7 @@ export default function Login() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl shadow-lg mb-4">
             <Bot className="w-10 h-10 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900">辰光 Agent</h1>
+          <h1 className="text-3xl font-bold text-gray-900">fy Agent</h1>
           <p className="text-gray-500 mt-2">企业级智能Agent管理平台</p>
         </div>
 
@@ -205,7 +205,7 @@ export default function Login() {
         </Card>
 
         <p className="text-center text-sm text-gray-500 mt-8">
-          © 2025 辰光 Agent. All rights reserved.
+          © 2025 fy Agent. All rights reserved.
         </p>
       </div>
     </div>

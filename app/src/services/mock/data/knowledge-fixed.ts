@@ -87,7 +87,7 @@ export const mockSegments: Segment[] = [
     documentId: 'doc-001',
     documentName: 'API接口文档v2.0.pdf',
     position: 1,
-    content: '辰光Agent平台提供完整的RESTful API接口，支持Agent的创建、配置、调用等全生命周期管理。',
+    content: 'fyAgent平台提供完整的RESTful API接口，支持Agent的创建、配置、调用等全生命周期管理。',
     wordCount: 45,
     tokenCount: 128,
     keywords: ['API', '接口', 'Agent', '管理'],

@@ -20,7 +20,7 @@ export default function Profile() {
     department: '技术部',
     position: '系统管理员',
     location: '北京市朝阳区',
-    bio: '负责辰光Agent平台的系统管理和运维工作',
+    bio: '负责fyAgent平台的系统管理和运维工作',
     avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=admin',
     joinDate: '2024-01-15',
     lastLogin: '2024-02-08 10:30:00',
